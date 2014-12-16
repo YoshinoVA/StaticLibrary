@@ -28,13 +28,35 @@ namespace MathFuncs
 		float y;
 		float z;
 
+		unsigned long createRGB(int r, int g, int b)
+		{
+			return ((r & 0xff) << 16) + ((g & 0xff) << 8) + (b & 0xff);
+		}
 		Vector4 operator+ (Vector4& Other);
 		Vector4 operator- (Vector4& Other);
 		Vector4 operator* (Vector4& Other);
 	};
-	class Matrix3
+	class matrix3
 	{
-		float x;
-		
+		matrix3();
+
+		float matrix[3][3];
+		// Vector4 position;
+		// position.x = 5.f;
+		// matrix[0][0] = position.x;
+
+		matrix3 operator +(matrix3 other);
+		matrix3 operator -(matrix3 other);
+		matrix3 operator *(matrix3 other);
+	};
+	class matrix4
+	{
+		matrix4();
+
+		float matrix[4][4];
+
+		matrix4 operator +(matrix4 m2);
+		matrix4 operator -(matrix4 m2);
+		matrix4 operator *(matrix4 m2);
 	};
 }
